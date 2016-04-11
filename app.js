@@ -12,9 +12,8 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-
-var port = '3000';
-app.set('port', port);
+var port = 3000;
+app.set('port', process.env.PORT || port);
 
 var server = http.createServer(app);
 server.listen(port);
