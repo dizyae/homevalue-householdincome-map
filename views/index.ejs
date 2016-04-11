@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+        <script src="/javascripts/jquery-1.8.0.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
+        <script src="/javascripts/bootstrap.js"></script>
+        <script src="/javascripts/map.js"></script>
+        <script type="text/javascript">
+            
+
+            $(document).ready(function () {  
+                socket.on('noData', function (response) {
+                    alert(response);
+                });            
+                socket.on('displayData', function (response) {
+                    $('#loading').hide(100);
+                    $('#data').show(200, function(){
+                        $('#homeval').text('$' + response.homeValue);
+                        $('#incomeval').text('$' + response.income);
+                    });
+                }); 
+            });
+        </script>
+    </head>
+    <body>
+        <nav class="navbar navbar">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="#">
+                    How Much $$ Do People Make?
+                  </a>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="col-md-4">
+                <div id="message">
+                    <h4>Click the map to see Median Household Income and Median Home Values in the U.S.</h4>
+                </div>
+                <div id="data">
+                    <h3>Median Home Value: <span id="homeval"></h3>
+                    <h3>Median Income: <span id="incomeval"></h3>
+                </div>
+                <div id="loading">
+                    <div class='uil-ellipsis-css' style='transform:scale(0.6);'><div class="ib"><div class="circle"><div></div></div><div class="circle"><div></div></div><div class="circle"><div></div></div><div class="circle"><div></div></div></div></div>
+                </div>
+            </div>
+            <div id="map" class="col-md-8"></div>
+            <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfETkFAKp7er9sSJehdPlZtjEiWeREf2o
+                &libraries=visualization&callback=initMap">
+            </script>
+        </div>
+    </body>
+</html>
