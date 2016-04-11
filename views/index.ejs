@@ -2,11 +2,11 @@
 <html>
     <head>
         <title><%= title %></title>
-        <link rel='stylesheet' href='/stylesheets/style.css' />
         <script src="/javascripts/jquery-1.8.0.js"></script>
         <script src="/socket.io/socket.io.js"></script>
         <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
         <script src="/javascripts/bootstrap.js"></script>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
         <script src="/javascripts/map.js"></script>
         <script type="text/javascript">
             
@@ -26,13 +26,19 @@
         </script>
     </head>
     <body>
-        <nav class="navbar navbar">
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
                   <a class="navbar-brand" href="#">
-                    How Much $$ Do People Make?
+                    <span><img id="logo" alt="Brand" src="/images/logo.png"></span>
                   </a>
                 </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home Value to Income Map <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </div>   
             </div>
         </nav>
         <div class="container">
